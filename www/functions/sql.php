@@ -1,19 +1,32 @@
 <?php
 
-function Sql_connect(){
-    mysql_connect('localhost','root','');
-    mysql_select_db('lesson1');
-}
+class Base_db{
+    public $host_name;
+    public $base_login;
+    public $base_password;
+    public $base_db;
 
-function Sql_select($sql){
-    Sql_connect();
-
-    $res = mysql_query($sql);
-    $ret = [];
-
-    while ($row = mysql_fetch_assoc($res)){
-        $ret[] = $row;
+    public function __construct($host,$login,$pass,$db){
+        $this->host_name = $host;
+        $this->base_login = $login;
+        $this->base_password = $pass;
+        $this->base_db = $db;
     }
 
-    return $ret;
+    public function connect(){
+        mysql_connect($this->host_name,$this->base_login,$this->base_password);
+        mysql_select_db($this->base_db);
+    }
+
+    public function select($sql, $object='stdObject'){
+        $this->connect();
+        $res = mysql_query($sql);
+        $ret = [];
+
+        while ($row = mysql_fetch_object($res, $object)){
+            $ret[] = $row;
+        }
+        return $ret;
+    }
 }
+

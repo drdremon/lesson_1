@@ -11,9 +11,8 @@
 
 <?php foreach($articles as $article): ?>
 
-    <h2><? echo $article['pagetitle']?></h2>
-    <article><? echo $article['text']?></article>
-    <a href="/www/article.php?id=<?php echo $article['id'] ?>">Читать весь текст статьи</a>
+    <h2><?php echo $article->pagetitle;?></h2>
+
 <?php endforeach ?>
 
 
