@@ -1,5 +1,5 @@
 <?php
-require __DIR__.'/model/functions.php';
+require __DIR__ . '/model/News.php';
 
 if (isset($_GET)) {
     $id = $_GET['id'];

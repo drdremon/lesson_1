@@ -3,7 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/www/article.php" dialect="TSQL" />
     <file url="file://$PROJECT_DIR$/www/index.php" dialect="TSQL" />
-    <file url="file://$PROJECT_DIR$/www/model/functions.php" dialect="TSQL" />
+    <file url="file://$PROJECT_DIR$/www/model/News.php" dialect="TSQL" />
   </component>
 </project>
 

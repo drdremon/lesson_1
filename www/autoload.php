@@ -5,5 +5,7 @@ function __autoload($class){
         require __DIR__.'/controller/'.$class.'.php';
     } elseif (file_exists(__DIR__.'/model/'.$class.'.php')){
         require __DIR__.'/model/'.$class.'.php';
-    }
+    }  elseif (file_exists(__DIR__.'/functions/'.$class.'.php')){
+    require __DIR__.'/functions/'.$class.'.php';
+}
 }

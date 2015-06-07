@@ -1,7 +1,5 @@
 <?php
 
-require_once __DIR__. '/../model/functions.php';
-
 class NewsController{
 
     public function actionAll(){
