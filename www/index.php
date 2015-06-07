@@ -1,7 +1,11 @@
 <?php
 
-require __DIR__.'/model/functions.php';
+$ctrl = isset($_GET['ctrl']) ? $_GET['ctrl']:'News';
+$act = isset($_GET['act']) ? $_GET['act']:'All';
 
-$articles= News::AllNews();
+$controllerName = $ctrl. 'Controller';
+require_once __DIR__.'/controller/'.$controllerName.'.php';
+$controller = new $controllerName;
 
-include __DIR__.'/views/index.php';
+$method = 'action'. $act;
+$controller->$method();

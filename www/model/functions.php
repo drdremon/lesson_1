@@ -10,6 +10,13 @@ class News{
     public static function AllNews(){
         $db = new Base_db('localhost','root','','lesson1');
         $db->connect();
-        return $db->select('SELECT * FROM articles','News');
+        return $db->queryAll('SELECT * FROM articles','News');
     }
+
+    public static function getOne($id){
+        $db = new Base_db('localhost','root','','lesson1');
+        $db->connect();
+        return $db->queryOne('SELECT * FROM articles WHERE id='.$id,'News');
+    }
+
 }

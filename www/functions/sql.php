@@ -18,7 +18,7 @@ class Base_db{
         mysql_select_db($this->base_db);
     }
 
-    public function select($sql, $object='stdObject'){
+    public function queryAll($sql, $object='stdClass'){
         $this->connect();
         $res = mysql_query($sql);
         $ret = [];
@@ -27,6 +27,10 @@ class Base_db{
             $ret[] = $row;
         }
         return $ret;
+    }
+
+    public function queryOne($sql, $class='stdClass'){
+        return $this->queryAll($sql, $class)[0];
     }
 }
 
